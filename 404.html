@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./style.css">
+    <script> electron = require('electron') </script>
+    <title>connection error</title>
+  </head>
+  <body>
+   
+
+<script>
+
+
+
+
+playAlert = setInterval(function(){
+      electron.ipcRenderer.send('request-mainprocess-action8');
+},3000)
+
+
+    function app_close() {
+    
+    electron.ipcRenderer.send('request-mainprocess-action7');
+  
+  };
+
+
+
+  function app_reconnect() {
+    
+    //electron.ipcRenderer.send('request-mainprocess-action8');
+
+    
+    playAlert = setInterval(function(){
+      electron.ipcRenderer.send('request-mainprocess-action8');
+},3000)
+
+
+  };
+
+  </script>
+
+<div style="position: fixed;top: 4px;">
+<h2  style="color: #ff5349;text-align: center;">connection error </h2>
+<h2 style="color: #ffffff;font-size: 13px;;text-align: center;">연결이 끊어졌습니다. <br>다시 연결을 시도하는 중..</h2>
+
+</div>
+<div class="loading-container">
+    <div class="loading"></div>
+    <div id="loading-text">reconnect</div>
+</div>
+
+<!--// Link Attribution -->
+<!-- <div class="load1">
+  <div class="load2">
+    <div class="load3">
+      <div class="load4">
+        <div class="load5">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<i class=""></i> -->
+
+<div>
+
+<button id="button1" onclick="app_close();" value="close">Close </button>
+
+<!--  <input type="button" id="button2" onclick="app_reconnect();" value="재접속" /> -->
+</div>
+
+  </body>
+
+</html>
+
+
+

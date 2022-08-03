@@ -1,0 +1,41 @@
+var edge = require('electron-edge-js');
+
+
+var RegistryKey = edge.func(function () {/*
+    async (input) => { 
+            using Microsoft.Win32;
+            string str = null;
+            RegistryKey rkey = Registry.LocalMachine.OpenSubKey("Software\\Saehan\\SoftphoneOCX");//레지스트 키를 검색
+            str = (string)(rkey == null ? null : rkey.GetValue("OCXThreadID")); //OCXThreadID에 저장된 값을 변수에 저장
+
+            return Convert.ToUInt32(str);
+    }
+*/});
+
+var rKey = ''
+RegistryKey({}, function (error, result) {
+    if (error) throw error;
+rKey = result+'';
+console.log(rKey);
+});
+
+var AtomA = edge.func(require('path').join(__dirname, 'GlobalAddAtomA.cs'));
+
+var atom = 0;
+
+tt = AtomA({lpBuf:'8305021470912/01024673383/12345/12345/12345'}, function (error, result) {
+    if (error) throw error;
+    atom = result;
+});
+
+
+var postmassage = edge.func(require('path').join(__dirname, 'postmassage.cs'));
+
+var m_ThreadID = 0;
+m_ThreadID = rKey;
+
+tt = postmassage({m_ThreadID: m_ThreadID,atom: atom,UEIData: '8305021470912/01024673383/12345/12345/12345'}, function (error, result) {
+    if (error) throw error;
+    kk = result;
+    console.log(kk);
+});

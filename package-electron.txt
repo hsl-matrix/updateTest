@@ -1,0 +1,1 @@
+electron-packager .  ipiSoftPhone  --platform=win32 --arch=ia32

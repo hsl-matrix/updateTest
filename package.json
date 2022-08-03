@@ -1,0 +1,82 @@
+{
+  "name": "MatrixCloud",
+  "version": "1.0.0",
+  "description": "MatrixCloud",
+  "icon": "matrixtalk.ico",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "deploy": "electron-builder --windows nsis:x64"
+  },
+  "win": {
+    "target": "nsis",
+    "icon": "matrixtalk.ico"
+  },
+  "repository": "https://github.com/hsl-matrix/eut",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "MatrixCloud",
+  "license": "CC0-1.0",
+  "dependencies": {
+    "check-internet-connected": "^2.0.5",
+    "connectivity": "^1.0.2",
+    "dialogs": "^1.1.20",
+    "electron-debug": "^2.1.0",
+    "electron-is-dev": "latest",
+    "electron-log": "^4.4.8",
+    "electron-packager": "^13.0.1",
+    "electron-positioner": "^4.1.0",
+    "electron-updater": "^5.2.1",
+    "electron-window-state": "^5.0.3",
+    "gh-pages": "^3.2.3",
+    "nodemailer": "^5.1.1",
+    "nodemailer-smtp-pool": "^2.8.3",
+    "update-electron-app": "^2.0.1",
+    "ws": "^7.3.0"
+  },
+  "devDependencies": {
+    "electron": "^13.6.0",
+    "electron-builder": "^22.11.7"
+  },
+  "build": {
+    "productName": "MatrixCloud",
+    "appId": "com.electron.MatrixCloud",
+    "asar": true,
+    "protocols": {
+      "name": "MatrixCloud",
+      "schemes": [
+        "MatrixCloud"
+      ]
+    },
+    "win": {
+      "target": [
+        "zip",
+        "nsis"
+      ],
+      "icon": "./resources/installer/Icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": true,
+      "installerIcon": "resources/installer/Icon.ico"
+    },
+    "directories": {
+      "buildResources": "./resources/installer/",
+      "output": "./dist/",
+      "app": "."
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "hsl-matrix/eut",
+        "repo": "releases"
+      }
+    ]
+  }
+}

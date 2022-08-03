@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <title>Error!</title>
+  </head>
+  <body>
+    <h1>sorry, not connected!</h1>
+
+    <script>
+    function app_close() {
+      //확면축소시 footer를 눌렀을 때
+      electron.ipcRenderer.send('softphone-logout2'); //화면 복원
+    };
+
+  </script>
+
+
+    <button
+                type="button"
+                
+                value="닫기"
+                id="login"
+                class="btn"
+              >
+                닫기
+              </button>
+
+  </body>
+</html>
